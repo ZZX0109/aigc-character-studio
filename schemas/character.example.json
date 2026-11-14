@@ -1,0 +1,26 @@
+{
+  "schema_status": "draft_example_not_validated",
+  "asset_status": "pending",
+  "character_id": "synthetic_001",
+  "revision": "v001",
+  "parent_revision": "v000",
+  "topology_id": "pending",
+  "unit": "must_be_calibrated",
+  "neutral_mesh": null,
+  "shape_parameters": null,
+  "texture_assets": [],
+  "expression_model_version": null,
+  "edits": [
+    {
+      "semantic_region": "nose_alar",
+      "signed_amount": 1.0,
+      "unit": "calibrated_step_not_mm",
+      "baseline_revision": "v000",
+      "canonical_vertex_delta": null,
+      "support_mask": null,
+      "transition_band": null
+    }
+  ],
+  "reference_views": [],
+  "content_hash": null
+}

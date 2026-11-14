@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "local-edit-pilot-v1",
+  "experiment_status": "planned",
+  "description": "Planning manifest only; no character assets, 3D renders, or generated videos exist yet.",
+  "pairing_note": "Paired jobs share the requested driver specification and seed; text-only baselines do not consume driving video. The seed does not guarantee pixel alignment.",
+  "comparison_note": "B0/B1 are weak baselines with different information conditions. The later full_geometry versus geometry_delta ablation must use the same driver and motion interface for the fair core comparison.",
+  "characters": [
+    {
+      "id": "synthetic_001",
+      "asset_status": "pending",
+      "asset_path": null
+    },
+    {
+      "id": "synthetic_002",
+      "asset_status": "pending",
+      "asset_path": null
+    }
+  ],
+  "states": [
+    {
+      "id": "original",
+      "edit_parameter": null,
+      "edit_delta": 0.0,
+      "edit_unit": "normalized_control_units"
+    },
+    {
+      "id": "nose_alar_width_narrower",
+      "edit_parameter": "nose_alar_width",
+      "edit_delta": -0.5,
+      "edit_unit": "normalized_control_units"
+    },
+    {
+      "id": "chin_protrusion_forward",
+      "edit_parameter": "chin_protrusion",
+      "edit_delta": 0.5,
+      "edit_unit": "normalized_control_units"
+    }
+  ],
+  "shots": [
+    {
+      "id": "front_neutral",
+      "start_yaw_degrees": 0,
+      "driver_id": "driver_front_neutral_v1",
+      "driver_status": "pending",
+      "description": "Frontal head with a neutral expression."
+    },
+    {
+      "id": "turn_profile",
+      "start_yaw_degrees": 45,
+      "driver_id": "driver_turn_profile_v1",
+      "driver_status": "pending",
+      "description": "Start at 45 degrees yaw, turn to near profile, and return to 45 degrees."
+    },
+    {
+      "id": "strong_smile",
+      "start_yaw_degrees": 0,
+      "driver_id": "driver_strong_smile_v1",
+      "driver_status": "pending",
+      "description": "Frontal head with a strong smile and expression recovery."
+    }
+  ],
+  "seeds": [42],
+  "methods": [
+    {
+      "id": "consisid_frontal",
+      "implementation_status": "planned",
+      "motion_input_mode": "text_only",
+      "description": "Planned B0 weak ConsisID baseline using one edited-version frontal reference and a text motion request; no driving video is consumed. Information conditions differ from geometry-driven methods."
+    },
+    {
+      "id": "consisid_view_selected",
+      "implementation_status": "planned",
+      "motion_input_mode": "text_only",
+      "description": "Planned B1 weak ConsisID baseline selecting one edited-version reference at the requested shot start yaw, with text motion only; not a native multi-reference or driving-video interface. Information conditions differ from geometry-driven methods."
+    },
+    {
+      "id": "proposed_geometry_delta",
+      "implementation_status": "planned",
+      "motion_input_mode": "planned_geometry_driver",
+      "description": "Unimplemented hypothesis: edited geometry plus canonical local shape delta. A future full_geometry versus geometry_delta ablation must share the same driver and motion interface; B0/B1 alone are not a fair core comparison."
+    }
+  ]
+}
